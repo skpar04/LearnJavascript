@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>0513作业</title>
+</head>
+
+<h2>第四天</h2>
+<h3>1-100之间的和用函数封装</h3>
+<button onclick="sumFunction()">点击调用封装了1-100之间的和的函数</button>
+<p id="demo1"></p>
+<script>
+    function sumFunction() {
+        var sum = 0;
+        for (var i = 0; i <= 100; i ++) {
+            sum = sum + i;
+        }
+        document.getElementById("demo1").innerHTML = sum;
+    }
+</script>
+<h3>函数封装, 判断是否是正整数</h3>
+<input type="text" id="num01" />
+<button onclick="IntegerFunction()">判断是否是整数</button>
+<p id="demo2"></p>
+<script>
+    function IntegerFunction() {
+        var num, integertest;
+        num = document.getElementById("num01").value;
+        if (num % 1 == 0) {
+            integertest = "是整数";
+        } else {
+            integertest = "不是整数";
+        }
+        document.getElementById("demo2").innerHTML = integertest;
+    }
+</script>
+<h3>函数封装,计算1到输入值的偶数之和</h3>
+<input type="text" id="num02" />
+<button onclick="sum01Function()">计算1到输入值的偶数之和</button>
+<p id="demo3"></p>
+<script>
+    function sum01Function() {
+        var num001, sum;
+        sum = 0;
+        num001 = document.getElementById("num02").value;
+        for (var i = 0; i <= num001; i += 2) {
+            sum = sum + i;
+        }
+        document.getElementById("demo3").innerHTML = sum;
+    }
+</script>
+
+<h3>函数封装,判断是不是素数</h3>
+<p>只支持整数（小数点后面自动忽略）</p>
+<input type="text" id="num03" />
+<button onclick="pnumFunction()">判断是不是素数</button>
+<p id="demo4"></p>
+<script>
+    function pnumFunction() {
+        var num, issu;
+        num = parseInt(document.getElementById("num03").value);
+        for (var i = 2; i <= num - 1; i ++) {
+            if (num % i == 0) {
+                break;
+            }
+        }
+        if (i > num - 1 && num > 1) {
+            issu = "是素数";
+        }else {
+            issu = "不是素数";
+        }
+        document.getElementById("demo4").innerHTML = issu;
+    }
+</script>
+
+<h3>函数封装,判断3个数的大小</h3>
+<p>只支持数字</p>
+<input type="text" id="num04" />
+<input type="text" id="num05" />
+<input type="text" id="num06" />
+<button onclick="bsFunction()">判断3个数的大小</button>
+<p id="demo5"></p>
+<script>
+    function bsFunction() {
+        var anum, bnum, cnum, allnum, maxn1, maxn2, maxn3;
+        anum = Number(document.getElementById("num04").value);
+        bnum = Number(document.getElementById("num05").value);
+        cnum = Number(document.getElementById("num06").value);
+        if (anum >= bnum && anum >= cnum) {
+            maxn1 = anum;
+            if (bnum >= cnum) {
+                maxn2 = bnum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = cnum;
+                maxn3 = bnum;
+            }
+        } else if (bnum >= anum && bnum >= cnum) {
+            maxn1 = bnum;
+            if (anum >= cnum) {
+                maxn2 = anum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = cnum;
+                maxn3 = anum;
+            }
+        } else {
+            maxn1 = cnum;
+            if (bnum >= cnum) {
+                maxn2 = bnum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = bnum;
+                maxn3 = anum;
+            }
+        }
+        allnum = maxn1 + ">" + maxn2 + ">" + maxn3;
+        document.getElementById("demo5").innerHTML = allnum;
+    }
+</script>
+</body>
+</html>

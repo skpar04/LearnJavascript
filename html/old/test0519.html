@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>回顾</title>
+</head>
+<body>
+<h3>函数封装, 判断是否是正整数</h3>
+<input type="text" id="num01" />
+<button onclick="integerFunction()">判断是否是整数</button>
+<p id="demo1"></p>
+<script>
+    function integerFunction() {
+        var nTest, sTest;
+        nTest = Number(document.getElementById("num01").value);
+        if (isNaN(nTest) == false) {
+            if (nTest % 1 == 0) {
+                sTest = "是整数";
+            } else {
+                sTest = "不是整数";
+            }
+        } else {
+            sTest = "请输入数字！";
+        }
+        document.getElementById("demo1").innerHTML = sTest;
+    }
+</script>
+
+<h3>1.将数组元素按 age 字段的值，从小到大排序</h3>
+<h4>1.</h4>
+<p id="demo2"></p>
+<script>
+    var student = [{age: 19, name:'Jack'},
+        {age: 5, name:'Apple'},
+        {age: 12, name:'Lynn'},
+        {age: 25, name:'David'},
+        {age: 2, name:'Doe'}];
+    // student.sort(function(a,b){return a-b})
+    var compare = function (obj1, obj2) {
+        var val1 = obj1.age;
+        var val2 = obj2.age;
+        if (val1 < val2) {
+            return -1;
+        } else if (val1 > val2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    var showa = "" ;
+        student.sort(compare);
+    for (var i = 0; i < student.length; i ++) {
+        showa += student[i].name + "," + student[i].age + "<br>";
+    }
+    document.getElementById("demo2").innerHTML = showa;
+
+
+   /* function compare(property){
+
+        return function(obj1,obj2){
+            var value1 = obj1[property];
+            var value2 = obj2[property];
+            return value1 - value2;
+        }
+    }
+    student.sort(compare("age"))
+
+
+    for (var i = 0; i < student.length; i ++) {
+        showa += student[i].name + "," + student[i].age + "<br>";
+    }
+    document.getElementById("demo2").innerHTML = showa;*/
+
+</script>
+
+<h2>第九天</h2>
+<h3>获取6位随机数并数字不重复</h3>
+<p id="demo7"></p>
+<script>
+    var atest = [];
+    for(var i = 0; i <= 9; i++) {
+        atest.push(i);
+    }
+    var fTest = function() {return 0.5 - Math.random()};
+    atest.sort(fTest);
+    atest.length = 6;
+    document.getElementById("demo7").innerHTML = atest;
+</script>
+
+<h3>函数封装,判断3个数的大小</h3>
+<p>只支持数字</p>
+<input type="text" id="num04" />
+<input type="text" id="num05" />
+<input type="text" id="num06" />
+<button onclick="bsFunction()">判断3个数的大小</button>
+<p id="demo5"></p>
+<script>
+    function bsFunction() {
+        var aTest = [];
+        aTest[0] = Number(document.getElementById("num04").value);
+        aTest[1] = Number(document.getElementById("num05").value);
+        aTest[2] = Number(document.getElementById("num06").value);
+        aTest.sort(function(a, b){return a - b});
+        var sTest = aTest[0] + " < " + aTest[1] + " < " + aTest[2];
+        document.getElementById("demo5").innerHTML = sTest;
+        /*var anum, bnum, cnum, allnum, maxn1, maxn2, maxn3;
+        anum = Number(document.getElementById("num04").value);
+        bnum = Number(document.getElementById("num05").value);
+        cnum = Number(document.getElementById("num06").value);
+        if (anum >= bnum && anum >= cnum) {
+            maxn1 = anum;
+            if (bnum >= cnum) {
+                maxn2 = bnum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = cnum;
+                maxn3 = bnum;
+            }
+        } else if (bnum >= anum && bnum >= cnum) {
+            maxn1 = bnum;
+            if (anum >= cnum) {
+                maxn2 = anum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = cnum;
+                maxn3 = anum;
+            }
+        } else {
+            maxn1 = cnum;
+            if (bnum >= cnum) {
+                maxn2 = bnum;
+                maxn3 = cnum;
+            } else {
+                maxn2 = bnum;
+                maxn3 = anum;
+            }
+        }
+        allnum = maxn1 + ">" + maxn2 + ">" + maxn3;
+        document.getElementById("demo5").innerHTML = allnum;*/
+    }
+</script>
+
+<h3>数组扁平化
+    [9, [3, 4, [9, 4], 10], 20]<br>
+    [9, 3, 4, 9, 4, 10, 20]</h3>
+
+<script>
+    var aTest01 = [9, [3, 4, [9, 4], 10], 20];
+    var aTest02 = aTest01.toString().split(",");
+    var aTest03 = [];
+    for (var i = 0; i < aTest02.length; i++) {
+        if (isNaN(Number(aTest02[i])) == false) {
+            aTest03.push(Number(aTest02[i]));
+        } else {
+            aTest03.push(aTest02[i]);
+        }
+    }
+    document.write(aTest03);
+</script>
+</body>
+</html>

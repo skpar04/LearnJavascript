@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>0514作业</title>
+</head>
+<body>
+<h2>第六天</h2>
+<h3>自学数组方法并注释使用方法以及作用</h3>
+<textarea style="width: 800px; height: 200px">
+indexOf()   查找指定元素的索引值；
+concat()    合并数组；
+join()      用数组的元素组成字符串；元素间插入"<br>"（join(<br>)）；
+pop()       删除数组中最后一个元素；
+push()      给数组的末尾添加一个元素；
+reverse()   反转数组内的元素顺序；
+shift()     删除数组中最后一个元素；
+slice()     从一个数组中选择元素（slice(1，5)选择第二个到第四个；数字是数组的元素顺序后一个数不包括自身）；
+sort()      排列数组顺序 字母升序，数字升序或 降序: sort(function(a,b){return b-a})
+splice()    在数组的第2(指定)位置后删除0个元素，添加两个元素 fruits.splice(2,0,"Lemon","Kiwi");
+toString()  转换数组变成字符串
+unshift()   在数组的开头添加新元素
+</textarea>
+<h3>1.将数组元素按 age 字段的值，从小到大排序</h3>
+<h3>2.查找数组对象中 age 大于 18 对象</h3>
+<h4>1.</h4>
+<p id="demo1"></p>
+
+<h4>2.</h4>
+<p id="demo2"></p>
+<script>
+    var student = [{age: 19, name:'Jack'},
+        {age: 5, name:'Apple'},
+        {age: 12, name:'Lynn'},
+        {age: 25, name:'David'}];
+
+    function compare(property){
+        return function(obj1,obj2){
+            var value1 = obj1[property];
+            var value2 = obj2[property];
+            return value1 - value2;
+        }
+    }
+    student.sort(compare("age"))
+    var showa = "";
+    var showb = "";
+    for (var i = 0; i < student.length; i ++) {
+        showa += student[i].name + "," + student[i].age + "<br>";
+    }
+    document.getElementById("demo1").innerHTML = showa;
+
+
+    for (var j = 0; j < student.length; j ++) {
+        if (student[j].age > 18) {
+            showb += student[j].name + "," + student[j].age + "<br>";
+        }
+    }
+    document.getElementById("demo2").innerHTML = showb;
+</script>
+
+</body>
+</html>

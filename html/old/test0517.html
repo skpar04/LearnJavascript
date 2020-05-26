@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>0514作业</title>
+</head>
+<body>
+<h2>第七天</h2>
+<h3>首字母改大写</h3>
+<p>hello //输出Hello</p>
+<p id="demo1"></p>
+<input type="text" id="text01" />
+<button onclick="toupFunction()">首字母改大写</button>
+<script>
+    function toupFunction() {
+        var oldtext, newtext, test01, test02 ;
+        oldtext = document.getElementById("text01").value;
+        test01 = oldtext.charAt(0);
+        test02 = test01.toUpperCase();
+        newtext = test02.concat(oldtext.slice(1));
+        document.getElementById("demo1").innerHTML = newtext;
+    }
+</script>
+
+<h3>编写函数 reverse (反转字符串)</h3>
+<p>"abc" //输出cba</p>
+<p id="demo2"></p>
+<input type="text" id="text02" />
+<button onclick="revFunction()">反转字符串</button>
+<script>
+    function revFunction() {
+        var oldtext, newtext = "";
+        oldtext = document.getElementById("text02").value;
+        for (var i =oldtext.length; i >= 0; i --) {
+            newtext = newtext + oldtext.charAt(i - 1);
+        }
+        document.getElementById("demo2").innerHTML = newtext;
+    }
+</script>
+
+<h3>统计字符串中各字符在字符串中出现的数量</h3>
+<p>"abcd" // 输出 {a:1,b:1,c:1,d:1}
+    "aaabbc00" // 输出 {a:3,b:2,c:1}
+    "" // 输出 {}
+</p>
+<p id="demo3"></p>
+<input type="text" id="text03" />
+<button onclick="test03Function()">统计字符串中各字符在字符串中出现的数量</button>
+<script>
+    function test03Function() {
+        var oldtext, key, newtext = "";
+        var obj = {};
+        oldtext = document.getElementById("text03").value;
+        for (var i = 0; i < oldtext.length; i++) {
+            key = oldtext[i];
+            if (obj[key]) {
+                obj[key]++;
+            } else {
+                obj[key] = 1;
+            }
+        }
+        for (var key in obj) //遍历这个对象
+        {
+            newtext = newtext + key + ":" + obj[key] + " ";
+        }
+        document.getElementById("demo3").innerHTML = "{" + newtext + "}";
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="news-top" class="section">
+        <h3>Some title</h3>
+        <div class="content">
+            <ul>
+                <li><span>HTML</span><a href="">Some Link1</a></li>
+                <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                <li><span>CSS</span><a href="">Some Link3</a></li>
+                <li><span>JS</span><a href="">Some Link4</a></li>
+            </ul>
+        </div>
+        <img src="">
+        <p class="">Some Text</p>
+    </div>
+    <div id="news-normal" class="section">
+        <h3>Some title</h3>
+        <div class="content">
+            <ul>
+                <li><span>HTML</span><a href="">Some Link1</a></li>
+                <li><span>HTML</span><a href="">Some Link2</a></li>
+                <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                <li><span>CSS</span><a href="">Some Link4</a></li>
+            </ul>
+        </div>
+        <img src="">
+        <p class="">Some Text</p>
+    </div>
+</div>
+
+<script>
+    //1.返回页面中所有li标签
+    var oTest01 = document.getElementsByTagName("li");
+    console.log(oTest01);
+
+    //2.返回某个section下所有span中内容为HTML的span标签
+    var oTest02 = document.getElementsByClassName('section');
+    var oTest03 = oTest02[0].getElementsByTagName('span');
+    var oTest04 = oTest02[1].getElementsByTagName('span');
+
+    for (var i = 0; i < oTest03.length; i ++) {
+        if (oTest03[i].innerHTML == "HTML") {
+            console.log(oTest03[i])
+        }
+    }
+    for (var i = 0; i < oTest04.length; i ++) {
+        if (oTest04[i].innerHTML == "HTML") {
+            console.log(oTest04[i]);
+        }
+    }
+    //返回某个section下，所有所包含span内容为JS的LI标签
+    for (var i = 0; i < oTest03.length; i ++) {
+        if (oTest03[i].innerHTML == "JS") {
+            console.log(oTest03[i].parentNode)
+        }
+    }
+    for (var i = 0; i < oTest04.length; i ++) {
+        if (oTest04[i].innerHTML == "JS") {
+            console.log(oTest04[i].parentNode);
+        }
+    }
+
+
+    //返回某个section下，class为active的链接中包含的文字内容
+    for (var i = 0; i < oTest02.length; i ++) {
+        var aList = oTest02[i].getElementsByTagName('a');
+        for (var j = 0 ; j < aList.length; j ++) {
+            if (aList[j].getAttribute("class") == "active") {
+                console.log(aList[j].innerHTML);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

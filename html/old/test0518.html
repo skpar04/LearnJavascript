@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>0514作业</title>
+</head>
+<body>
+<h2>第八天</h2>
+<h3>按(2019-06-15 09:25:12) 这种格式输出当前时间</h3>
+<p id="demo1"></p>
+<script>
+    var olddete, newdete, gyear, gmonth, gdate, ghours, gmin, gsec;
+    olddete = new Date();
+    gyear = olddete.getFullYear();
+    gmonth = olddete.getMonth();
+    gdate = olddete.getDate();
+    ghours = olddete.getHours();
+    gmin = olddete.getMinutes();
+    gsec = olddete.getSeconds();
+    function cheakd (i) {
+        if(i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    newdete = gyear + "-" +
+        cheakd(gmonth) + "-" +
+        cheakd(gdate) + " " +
+        cheakd(ghours) + "-" +
+        cheakd(gmin) + "-" +
+        cheakd(gsec);
+    document.getElementById("demo1").innerHTML = newdete;
+</script>
+
+<h3>获取n年m月一共有几天</h3>
+<p id="demo2"></p>
+<input type="text" id="year">年
+<input type="text" id="month">月
+<button onclick="wdayfunction()">获取n年m月一共有几天</button>
+<script>
+    function wdayfunction() {
+        var getdate, gety, getm, innerdate;
+        gety = document.getElementById("year").value;
+        getm = document.getElementById("month").value;
+        getdate = new Date(gety,getm,0);
+        document.getElementById("demo2").innerHTML = getdate.getDate();
+    }
+
+</script>
+
+<h3>获取n天后的日期 (都是以当天为准)</h3>
+<p id="demo3"></p>
+<input type="text" id="day1">天后是什么日期？
+<button onclick="GetDatefunction()">获取n天后的日期</button>
+<script>
+    function GetDatefunction() {
+        var odate01 = new Date();
+        var odate02 = document.getElementById("day1").value;
+        odate01.setDate(odate01.getDate() + Number(odate02));
+        var oyer = odate01.getFullYear();
+        var omon = odate01.getMonth() + 1;
+        var oday = odate01.getDate();
+        function cheakd (i) {
+            if(i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        document.getElementById("demo3").innerHTML = oyer + "-" + cheakd(omon) + "-" + cheakd(oday);
+    }
+</script>
+<h3>获取n个月后的日期</h3>
+<p id="demo4"></p>
+<input type="text" id="mon">月后是什么日期？
+<button onclick="GetDatefunction01()">获取n个月后的日期</button>
+<script>
+    function GetDatefunction01() {
+        var odate01 = new Date();
+        var odate02 = document.getElementById("mon").value;
+        var nyer = odate01.getFullYear();
+        var nmon = odate01.getMonth() + Number(odate02);
+        var nday = odate01.getDate();
+        if (nmon >= 12) {
+            for (var j = 0; j < nmon; j += 12) {
+                nyer ++;
+                nmon -= 12;
+            }
+        }
+        function cheakd (i) {
+            if(i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        document.getElementById("demo4").innerHTML = nyer + "-" + cheakd(nmon + 1) + "-" + cheakd(nday);
+    }
+</script>
+<h3>获取n天后是星期几</h3>
+<p id="demo5"></p>
+<input type="text" id="day2">天后是星期几？
+<button onclick="GetDayfunction()">获取n天后是星期几</button>
+<script>
+    function GetDayfunction() {
+        var odate01 = new Date();
+        var odate02 = document.getElementById("day2").value;
+        var oweek = odate01.getDay() + Number(odate02);
+        var oday = odate01.getDate();
+        if (oweek >= 7) {
+            oweek %= 7;
+        }
+        var aweekday = new Array(7);
+        aweekday[0] = "周日";
+        aweekday[1] = "周一";
+        aweekday[2] = "周二";
+        aweekday[3] = "周三";
+        aweekday[4] = "周四";
+        aweekday[5] = "周五";
+        aweekday[6] = "周六";
+
+        if (aweekday[oweek] == undefined) {
+            document.getElementById("demo5").innerHTML = "请输入整数";
+        } else {
+            document.getElementById("demo5").innerHTML = aweekday[oweek];
+        }
+    }
+</script>
+<h3>计算两个日期的天数差</h3>
+<p>例: (2019-06-11,  2019-06-13)  //2</p>
+<p id="demo6"></p>
+<input type="text" id="day3">
+<input type="text" id="day4">
+<button onclick="GetDay2function()">计算两个日期的天数差</button>
+<script>
+function GetDay2function() {
+    var odate01 = document.getElementById("day3").value;
+    var odate02 = document.getElementById("day4").value;
+    var ndate01 = Date.parse(odate01.replace("-","/"));
+    var ndate02 = Date.parse(odate02.replace("-","/"));
+    var ndate03 = Math.abs(ndate01 - ndate02) / 1000 / 60 / 60 / 24;
+    document.getElementById("demo6").innerHTML = ndate03 + "天";
+}
+</script>
+
+<h2>第九天</h2>
+<h3>获取6位随机数并数字不重复</h3>
+<p id="demo7"></p>
+<script>
+    var atest = [];
+    for(var i = 0; i <= 9; i++)
+        atest.push(i);
+    atest.sort(
+        function(){
+            return 0.5 - Math.random();
+        }
+    );
+    atest.length = 6;
+    document.getElementById("demo7").innerHTML = atest;
+</script>
+</body>
+</html>

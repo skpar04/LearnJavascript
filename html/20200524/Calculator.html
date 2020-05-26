@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="../../css/20200524/Calculator.css" />
+    <script src="../../js/20200524/Calculator.js"></script>
+</head>
+<body>
+<h5>计算器</h5>
+<!-- 计算器 -->
+<div class="screen-wrap">
+    <div class="screen">
+        <!-- 输入的数据 -->
+        <input readonly="readonly" id="screenIn" class="screenIn" value="0"></input>
+        <!-- 输出的运算结果 -->
+        <p id="screenOut" class="screenOut active"></p>
+    </div>
+    <table class="calc-operation">
+        <thead></thead>
+        <tbody>
+        <tr>
+            <td class="cls"><input type="button" onclick="clearText()" id="C" value="C"></td>
+            <td><input type="button" id="%" onclick="operation(this.id)" value="%"></td>
+            <td><input type="button" id="division" onclick="operation(this.id)" value="&divide;"></td>
+            <td><input type="button" id="*" onclick="operation(this.id)" value="&times;"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="7" onclick="getScreen(this.id)" value="7"></td>
+            <td><input type="button" id="8" onclick="getScreen(this.id)" value="8"></td>
+            <td><input type="button" id="9" onclick="getScreen(this.id)" value="9"></td>
+            <td><input type="button" id="-" onclick="operation(this.id)" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="4" onclick="getScreen(this.id)" value="4"></td>
+            <td><input type="button" id="5" onclick="getScreen(this.id)" value="5"></td>
+            <td><input type="button" id="6" onclick="getScreen(this.id)" value="6"></td>
+            <td><input type="button" id="+" onclick="operation(this.id)" value="+"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="1" onclick="getScreen(this.id)" value="1"></td>
+            <td><input type="button" id="2" onclick="getScreen(this.id)" value="2"></td>
+            <td><input type="button" id="3" onclick="getScreen(this.id)" value="3"></td>
+            <td rowspan="2" class="eq"><input type="button" id="=" onclick="fResults()" value="="></td>
+        </tr>
+        <td colspan="2"><input type="button" id="0" onclick="getScreen(this.id)" value="0"></td>
+        <td><input type="button" id="sPoint" onclick="fPoint()" value="."></td>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

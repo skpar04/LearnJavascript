@@ -1,0 +1,63 @@
+body {
+    padding: 20px;
+    font-family: Arial;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+}
+
+.screen-wrap {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.calc-operation {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.screen {
+    width: 100%;
+    padding: 10px 20px;
+    text-align: right;
+    box-sizing: border-box;
+    background-color: rgba(250, 250, 250, .9);
+}
+
+.screen p {
+    overflow: hidden;
+    margin: 5px;
+    width: 100%;
+}
+
+.screenIn,
+.screenOut {
+    font-size: 20px;
+    color: #888;
+    line-height: 39px;
+    min-height: 39px;
+}
+
+.screenIn {
+    color: #888;
+}
+.screenOut {
+    color: #ccc;
+}
+
+.calc-operation td {
+    padding: 10px;
+    width: 25%;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 26px;
+    color: #888;
+    cursor: pointer;
+}
+
+.calc-operation .cls {
+    color: #ee8956;
+}

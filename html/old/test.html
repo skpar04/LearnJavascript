@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>作业</title>
+</head>
+<body>
+
+<h2>第一天</h2>
+
+<p>fasle 转换为其他类型:</p>
+
+<p id="demo1"></p>
+
+<script>
+	var a = false;
+	document.getElementById("demo1").innerHTML =
+	"Number: " + Number(a) + "<br>" +
+	"String: " + String(a) + "<br>" +
+	"Boolean: " + Boolean(a);
+</script>
+
+<p>"000" 转换为其他类型:</p>
+
+<p id="demo2"></p>
+
+<script>
+	var b = "000";
+	document.getElementById("demo2").innerHTML =
+	"Number: " + Number(b) + "<br>" +
+	"String: " + String(b) + "<br>" +
+	"Boolean: " + Boolean(b);
+</script>
+
+<p>0 转换为其他类型:</p>
+
+<p id="demo3"></p>
+
+<script>
+	var c = 0;
+	document.getElementById("demo3").innerHTML = 
+	"Number: " + Number(c) + "<br>" +
+	"String:" + String(c) + "<br>" +
+	"Boolean: " + Boolean(c);
+</script>
+
+<p>NaN 转换为其他类型:</p>
+
+<p id="demo4"></p>
+
+<script>
+	var d = NaN;
+	document.getElementById("demo4").innerHTML = 
+	"Number: " + Number(d) + "<br>" +
+	"String:" + String(d) + "<br>" +
+	"Boolean: " + Boolean(d);
+</script>
+
+<p>"20" 转换为其他类型:</p>
+
+<p id="demo5"></p>
+
+<script>
+	var e = "20";
+	document.getElementById("demo5").innerHTML = 
+	"Number: " + Number(e) + "<br>" +
+	"String:" + String(e) + "<br>" +
+	"Boolean: " + Boolean(e);
+</script>
+
+<p>"Runoob" 转换为其他类型:</p>
+
+<p id="demo6"></p>
+
+<script>
+	var f = "Runoob";
+	document.getElementById("demo6").innerHTML = 
+	"Number: " + Number(f) + "<br>" +
+	"String:" + String(f) + "<br>" +
+	"Boolean: " + Boolean(f);
+</script>
+
+<p>[10,20] 转换为其他类型:</p>
+
+<p id="demo7"></p>
+
+<script>
+	var g = [10,20];
+	document.getElementById("demo7").innerHTML = 
+	"Number: " + Number(g) + "<br>" +
+	"String:" + String(g) + "<br>" +
+	"Boolean: " + Boolean(g);
+</script>
+
+<p>null 转换为其他类型:</p>
+
+<p id="demo8"></p>
+
+<script>
+	var h = null;
+	document.getElementById("demo8").innerHTML = 
+	"Number: " + Number(h) + "<br>" +
+	"String:" + String(h) + "<br>" +
+	"Boolean: " + Boolean(h);
+</script>
+
+<h2>第三天</h2>
+
+<p id="demo9"></p>
+
+<script>
+
+	var x="",i=1;
+	while (i<11){
+		x=x + i + " ";
+		i++;
+	}
+	document.getElementById("demo9").innerHTML=x;
+
+</script>
+
+</body>
+</html>
